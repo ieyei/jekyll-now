@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Jekyll Documents Page
-tags:
-- Jekyll
+tags: [Jekyll]
 ---
 
 [Jekyll Github Documents KO](http://jekyllrb-ko.github.io/)
