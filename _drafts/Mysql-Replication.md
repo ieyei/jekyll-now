@@ -32,6 +32,11 @@ High Availability => Replication
 ![innodb_flush_log_at_trx_commit](/images/innodb_flush_log_at_trx_commit.png)
 
 ### Improvement
+* Architecture  
+  - Normal  
+  ![Before](/images/replication1.png)
+  - Upgrade  
+  ![After](/images/replication2.png)
 * Slave pre-fetching  
 [Making slave pre-fetching work better with SSD](http://yoshinorimatsunobu.blogspot.kr/2011/10/making-slave-pre-fetching-work-better.html)
 * Group commit
