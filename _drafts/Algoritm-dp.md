@@ -70,4 +70,26 @@ System.out.println("#" + ts + " " + dy(1, N));
 ```
 [MCM.java](/java/MCM.java)
 
+## Assembly Line Scheduling
+* D[i][j] = 물건이 i번 생산라인의 j번째 공정에 있을 때, 오는데 걸리는 최소 시간
+* 초기값:
+D[1][1] = E[1] + S[1][1], 
+D[2][1] = E[2] + S[2][1]
+* 최종답: min(D[1][N] + X[1], D[2][N] + X[2])
+* D[i][j] = min(D[i][j-1], D[3-i][j-1] + t[3-i][j-1]) + S[i][j]
+* Hint : D[i][j]를 계산할 때 D[i][j-1]과 D[3-i][j-1] 값이 먼저 계산되어있어야 한다
+``` java
+D = new int[3][N + 1];
+// initial value
+for (int i = 1; i < 3; i++)
+	D[i][1] = E[i] + S[i][1];
+
+for (int j = 2; j <= N; j++) {
+	for (int i = 1; i < 3; i++) {
+		D[i][j] = Math.min(D[i][j - 1], D[3 - i][j - 1] + T[3 - i][j - 1]) + S[i][j];
+	}
+}
+System.out.println("#" + ts + " " + Math.min(D[1][N] + X[1], D[2][N] + X[2]));
+```
+[ALS.java](/java/ALS.java)
 
