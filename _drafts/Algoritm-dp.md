@@ -18,3 +18,24 @@ for(int i=1; i<=N; i++){
 }
 ```
 [폐지줍기.java](/java/폐지줍기.java)
+
+## 막대기 자르기
+* D[i] = 길이가 i인 막대기를 자를 때 조각들의 값어치 합의 최대값
+	- D[i] = max(D[i-j] + P[j]) for 1 ≤ j ≤ i
+* 초기값 D[0] = 0
+* 최종답: D[N}
+``` java
+A = new int[N+1];
+StringTokenizer st = new StringTokenizer(br.readLine());
+for (int i=1;i<=N;i++) 
+	A[i] = Integer.parseInt(st.nextToken());
+
+D = new int[N+1];
+for (int i=1;i<=N;i++){
+	for (int j=1;j<=i;j++){ 
+		D[i] = Math.max(D[i], D[i-j]+A[j]);
+	}
+}
+System.out.println("#" + ts + " " + D[N]);
+```
+[막대기 자르기.java](/java/막대기자르기.java)
