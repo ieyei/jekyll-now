@@ -39,3 +39,35 @@ for (int i=1;i<=N;i++){
 System.out.println("#" + ts + " " + D[N]);
 ```
 [막대기 자르기.java](/java/막대기자르기.java)
+
+## Matrix Chain Multiplication
+* D[i][j] = 행렬의 곱셈 𝐴_𝑖 𝐴_(𝑖+1)…𝐴_(𝑗−1) 𝐴_𝑗을 계산하는데 필요한 최소 연산 횟수
+* 초기값: D[i][i] = 0 for 1 ≤ i ≤ N
+* 최종답: D[1][N]
+* i 보다 같거나 크고 j 보다 작은 k에 대해 (𝐴_𝑖 𝐴_(𝑖+1)…𝐴_𝑘)(𝐴_(𝑘+1) 𝐴_(𝑘+2)…𝐴_𝑗) 가 마지막 곱셈인 경우
+	- 필요한 최소 연산 횟수는 D[i][k] + D[k+1][j] + (a[i] * a[k+1] * a[j+1])
+	- a[i] * a[k+1] * a[j+1] : 두 행렬의 곱을 계산하는데 필요한 연산 횟수
+* D[i][j] = min(D[i][j], D[i][k]+D[k+1][j] + a[i]*a[k+1]*a[j+1]) for i ≤ k < j
+* Hint : D[i][j]를 계산할 때 D[i][k]와 D[k+1][j] 값이 먼저 계산되어있어야 한다 => Memoization
+``` java
+cache = new int[N + 1][N + 1];
+calculated = new boolean[N + 1][N + 1];
+
+static int dy(int s, int e) {
+	if (calculated[s][e])
+		return cache[s][e];
+	calculated[s][e] = true;
+	if (s == e)
+		return cache[s][e] = 0;
+	int ret = Integer.MAX_VALUE;
+	for (int k = s; k < e; k++) {
+		int v = dy(s, k) + dy(k + 1, e) + A[s] * A[k + 1] * A[e + 1];
+		ret = Math.min(ret, v);
+	}
+	return cache[s][e] = ret;
+}
+System.out.println("#" + ts + " " + dy(1, N));
+```
+[MCM.java](/java/MCM.java)
+
+
