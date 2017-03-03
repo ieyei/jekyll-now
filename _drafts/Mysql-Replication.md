@@ -41,3 +41,6 @@ High Availability => Replication
 [Making slave pre-fetching work better with SSD](http://yoshinorimatsunobu.blogspot.kr/2011/10/making-slave-pre-fetching-work-better.html)
 * Group commit
 
+
+[AWS re:Invent 2016: Deep Dive on Amazon Aurora] (https://www.youtube.com/watch?v=duf5uUsW3TM)
+[Amazon Aurora Deep Dive Slide] (https://www.slideshare.net/awskorea/amazon-aurora-deep-dive-61569862)
