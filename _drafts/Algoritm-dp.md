@@ -96,7 +96,7 @@ System.out.println("#" + ts + " " + Math.min(D[1][N] + X[1], D[2][N] + X[2]));
 ## Fibonacci
 * 초기값: F[0] = 0, F[1] = 1
 * 최종답: F[N]
-* F[n] = F[n-1] + F[n-2] (for n >= 2)  (0 ≤ N ≤ 10^12)
+* F[n] = F[n-1] + F[n-2] (for n >= 2)  (0 ≤ N ≤ 10^12)  
 [Fast Fibonacci algorithms] (https://www.nayuki.io/page/fast-fibonacci-algorithms)
 ``` java
 static int fibo(long n){
@@ -139,3 +139,42 @@ static class Matrix{
 }
 ```
 [Fibonacci.java](/java/Fibonacci.java)
+
+## LCS(Longest Common Subsequence)
+* D[i][j] = 문자열 A[1..i]와 문자열 B[1..j]의 LCS 길이
+ - A[1..i]는 문자열 A의 첫 번째 문자부터 i번째 문자까지 있는 길이가 i인 부분 문자열
+ - B[1..j]는 문자열 B의 첫 번째 문자부터 j번째 문자까지 있는 길이가 j인 부분 문자열
+ - D[i][j] = max(D[i-1][j], D[i][j-1]) ← if A[i] ≠ B[j]
+  + max(D[i-1][j], D[i][j-1], D[i-1][j-1]+1) ← if A[i] = B[j]
+* 초기값 : D[i][0] = D[0][i] = 0
+* 최종답(LCS의 길이) → D[N][M]
+* 시간복잡도: O(NM)
+``` java
+D = new int[N+1][M+1]; E = new int[N+1][M+1];
+for (int i=1;i<=N;i++) for (int j=1;j<=M;j++){
+	if (D[i-1][j] > D[i][j-1]){
+		D[i][j] = D[i-1][j]; E[i][j] = 1;
+	}
+	else{
+		D[i][j] = D[i][j-1]; E[i][j] = 2;
+	}
+	if (A[i] == B[j] && D[i][j] < D[i-1][j-1]+1){
+		D[i][j] = D[i-1][j-1]+1; E[i][j] = 3;	
+	}
+}
+
+StringBuilder ans = new StringBuilder();
+for (int i=N,j=M;i>0&&j>0;){
+	if (E[i][j] == 1) i--;
+	else if (E[i][j] == 2) j--;
+	else{
+		ans.append(A[i]);
+		i--; j--;
+	}
+}
+ans.reverse();
+System.out.println(ans);
+```
+[LCS.java](/java/LCS.java)
+
+
