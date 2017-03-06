@@ -42,5 +42,6 @@ High Availability => Replication
 * Group commit
 
 
-[AWS re:Invent 2016: Deep Dive on Amazon Aurora] (https://www.youtube.com/watch?v=duf5uUsW3TM)
-[Amazon Aurora Deep Dive Slide] (https://www.slideshare.net/awskorea/amazon-aurora-deep-dive-61569862)
+[AWS re:Invent 2016: Deep Dive on Amazon Aurora] (https://www.youtube.com/watch?v=duf5uUsW3TM)  
+[Amazon Aurora Deep Dive Slide] (https://www.slideshare.net/awskorea/amazon-aurora-deep-dive-61569862)  
+[MHA wiki](https://github.com/yoshinorim/mha4mysql-manager/wiki)  
