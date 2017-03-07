@@ -70,6 +70,31 @@ System.out.println("#" + ts + " " + dy(1, N));
 ```
 [MCM.java](/java/MCM.java)
 
+##  동전 교환
+* D[i] = 정확히 i원을 거슬러 주어야할 때, 필요한 최소 동전의 수
+* D[i] = min(D[i-A[j]] + 1) (for all j, 1 ≤ j ≤ N, i-A[j] ≥ 0)
+ - 여기서 A[j]는 j번째 동전 단위
+ - j번째 동전 단위의 동전을 마지막으로 거슬러 줄 때 최소 동전의 수 → D[i-A[j]] + 1
+* 초기값 → D[0] = 0
+* 답 → D[W]
+* 시간복잡도: O(WN)
+``` java
+N = Integer.parseInt(br.readLine());
+StringTokenizer st = new StringTokenizer(br.readLine());
+A = new int[N+1];
+for (int i=1;i<=N;i++) A[i] = Integer.parseInt(st.nextToken());
+W = Integer.parseInt(br.readLine());
+
+D = new int[W+1];
+for (int i=1;i<=W;i++){
+	D[i] = (int)2e9;
+	for (int j=1;j<=N;j++) if (i-A[j] >= 0)
+		D[i] = Math.min(D[i], D[i-A[j]] + 1);
+}
+System.out.println(D[W]);
+```
+[동전교환.java](/java/동전교환.java)
+
 ## Assembly Line Scheduling
 * D[i][j] = 물건이 i번 생산라인의 j번째 공정에 있을 때, 오는데 걸리는 최소 시간
 * 초기값:
