@@ -28,3 +28,20 @@ bw.flush();
 
 bw.close();
 ```
+## 부동소수점 (float와 double 연산의 부정확성)
+``` java
+double d1 = 3;
+double d2 = 0.01;
+System.out.println(d1 + d2);    // prints 3.8099999999999996 
+
+double d3 = 2.4;
+double d4 = 0.8;
+System.out.println(d3 / d4);    // prints 2.9999999999999996 
+
+import java.math.BigDecimal;
+......
+BigDecimal d1 = new BigDecimal("2.4");
+BigDecimal d2 = new BigDecimal("0.8");
+System.out.println(d1.divide(d2));      // prints 3
+```
+[float와 double 연산의 부정확성](http://gwpark.tistory.com/1729)
