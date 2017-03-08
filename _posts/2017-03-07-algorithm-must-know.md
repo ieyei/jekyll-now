@@ -45,3 +45,23 @@ BigDecimal d2 = new BigDecimal("0.8");
 System.out.println(d1.divide(d2));      // prints 3
 ```
 [float와 double 연산의 부정확성](http://gwpark.tistory.com/1729)
+
+## Disjoint Set(서로소)
+서로소 집합의 연산으로 Union-Find가 있으며, Union-Find를 빠르게 구현하기 위해 경로 압축을 한다
+* Union Find
+* Path Compression
+``` java
+par = new int[N+1];
+for (int i=1;i<=N;i++) par[i] = i; 	
+	
+static int find(int n) {
+	if (par[n] == n) return n;
+	return par[n] = find(par[n]);
+}
+ 
+static void union(int a, int b) {
+	int p = find(a), q = find(b);
+	if (p == q) return;
+	par[q] = p;
+}
+```
