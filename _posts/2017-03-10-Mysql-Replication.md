@@ -8,6 +8,7 @@
 - [Replication Types] (#replication-types)
 - [Parameters] (#parameters)
 - [Improvement] (#improvement)
+- [References] (#references)
 
 ## What is it?
 데이터 정합성이 중요한 비즈니스에서 MySQL Replication은 데이터 불일치 이슈가 존재  
@@ -41,7 +42,7 @@ High Availability => Replication
 [Making slave pre-fetching work better with SSD](http://yoshinorimatsunobu.blogspot.kr/2011/10/making-slave-pre-fetching-work-better.html)
 * Group commit
 
-
+### References
 [AWS re:Invent 2016: Deep Dive on Amazon Aurora] (https://www.youtube.com/watch?v=duf5uUsW3TM)  
 [Amazon Aurora Deep Dive Slide] (https://www.slideshare.net/awskorea/amazon-aurora-deep-dive-61569862)  
 [MHA wiki](https://github.com/yoshinorim/mha4mysql-manager/wiki)  
