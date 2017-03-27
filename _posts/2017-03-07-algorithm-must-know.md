@@ -71,6 +71,12 @@ static void union(int a, int b) {
 * Floyd-Warshall (시작점이 정해져있지 않아도 됨)
 * BFS (시작점이 정해져있고, 간선 가중치가 모두 1)
 
+## 구간합,최대,최소
+* Segment Tree
+* Interval Tree
+* Indexed Tree
+
+
 ## Links
 [algorithms tutorialhorizon](http://algorithms.tutorialhorizon.com)
 
