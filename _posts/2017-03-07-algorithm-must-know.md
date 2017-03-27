@@ -65,3 +65,8 @@ static void union(int a, int b) {
 	par[q] = p;
 }
 ```
+## 최단거리 알고리즘
+* Bellman-Ford (시작점이 정해져있고, 음수간선 가능)
+* Dijkstra (시작점이 정해져있고, 음수간선 불가능)
+* Floyd-Warshall (시작점이 정해져있지 않아도 됨)
+* BFS (시작점이 정해져있고, 간선 가중치가 모두 1)
